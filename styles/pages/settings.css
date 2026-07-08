@@ -1,0 +1,106 @@
+.settings-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.settings-nav {
+    background: var(--card-bg);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1rem;
+    position: sticky;
+    top: 2rem;
+}
+
+.settings-nav-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: #475569;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: all 0.2s;
+}
+
+.settings-nav-item:hover {
+    background-color: #f8fafc;
+    color: var(--primary);
+}
+
+.settings-nav-item.active {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.settings-nav-item i {
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.settings-section {
+    background: var(--card-bg);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.settings-section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Security Layout */
+.security-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.security-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.security-list-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Danger Zone */
+.danger-zone {
+    border: 1px solid #fca5a5;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background-color: #fef2f2;
+}
+
+@media (max-width: 992px) {
+    .settings-layout {
+        grid-template-columns: 1fr;
+    }
+    .settings-nav {
+        position: relative;
+        top: 0;
+        display: flex;
+        overflow-x: auto;
+        padding: 0.5rem;
+    }
+    .settings-nav-item {
+        margin-bottom: 0;
+        margin-right: 0.5rem;
+        white-space: nowrap;
+    }
+}

@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.app-layout {
+    display: flex;
+    height: 100vh;
+    
+    width: 100%;
+}
+
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
+    min-width: 0;
+}
+
+.content-area {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    background-color: var(--bg-color);
+}
+
+/* Scrollbar styling for content area */
+.content-area::-webkit-scrollbar {
+    width: 8px;
+}
+.content-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+.content-area::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 4px;
+}
+
+/* Small screens: give content room instead of the desktop's generous padding */
+@media (max-width: 768px) {
+    .content-area {
+        padding: 1rem;
+    }
+}

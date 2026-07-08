@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLife - Financial Reports</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/themes/dark.css">
+    <link rel="stylesheet" href="../styles/components/forms.css">
+    <link rel="stylesheet" href="../styles/components/tables.css">
+    <link rel="stylesheet" href="../styles/components/cards.css">
+    <link rel="stylesheet" href="../styles/pages/reports.css">
+    <script src="../js/components/theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="app-layout">
+        
+        <!-- SIDEBAR COMPONENT -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <i class="bi bi-briefcase-fill me-2"></i> MyLife
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html"><i class="bi bi-grid-1x2"></i> <span data-i18n="nav.dashboard">Dashboard</span></a></li>
+                <li><a href="profile.html"><i class="bi bi-person"></i> <span data-i18n="nav.profile">Profile</span></a></li>
+                <li><a href="education.html"><i class="bi bi-mortarboard"></i> <span data-i18n="nav.education">Education</span></a></li>
+                <li><a href="skills.html"><i class="bi bi-tools"></i> <span data-i18n="nav.skills">Skills</span></a></li>
+                <li><a href="experience.html"><i class="bi bi-briefcase"></i> <span data-i18n="nav.experience">Experience</span></a></li>
+                <li><a href="projects.html"><i class="bi bi-folder"></i> <span data-i18n="nav.projects">Projects</span></a></li>
+                <li><a href="certificates.html"><i class="bi bi-award"></i> <span data-i18n="nav.certificates">Certificates</span></a></li>
+                <li><a href="gallery.html"><i class="bi bi-images"></i> <span data-i18n="nav.gallery">Gallery & Docs</span></a></li>
+                <li><a href="assets.html"><i class="bi bi-buildings"></i> <span data-i18n="nav.assets">Assets</span></a></li>
+                <li><a href="finance.html"><i class="bi bi-currency-dollar"></i> <span data-i18n="nav.finance">Finance</span></a></li>
+                <li><a href="reports.html" class="active"><i class="bi bi-bar-chart"></i> <span data-i18n="nav.reports">Reports</span></a></li>
+                <li><a href="tasks.html"><i class="bi bi-check2-square"></i> <span data-i18n="nav.tasks">Tasks</span></a></li>
+                <li><a href="resume.html"><i class="bi bi-file-earmark-person"></i> <span data-i18n="nav.resume">Resume</span></a></li>
+                
+                
+            </ul>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <h5 class="mb-0 fw-bold d-none d-md-block text-dark" id="dynamicPageTitle">MyLife</h5>
+                </div>
+                <div class="header-right d-flex align-items-center gap-3">
+                    <!-- Theme Toggle -->
+                    <div class="position-relative d-none d-md-block" style="cursor: pointer;" title="Toggle Dark/Light Mode" id="themeToggleBtn">
+                        <i class="bi bi-moon fs-5 text-muted" id="themeIcon"></i>
+                    </div>
+                    <!-- Language Selector -->
+                    <div class="dropdown">
+                        <div class="position-relative d-none d-md-block dropdown-toggle" data-bs-toggle="dropdown" style="cursor: pointer;" title="Choose Language">
+                            <i class="bi bi-globe fs-5 text-muted"></i>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-3 p-0" style="min-width: 180px; z-index: 1050; max-height: 400px; overflow-y: auto;">
+                            <li class="p-2 border-bottom bg-light fw-bold text-center small text-muted">Select Language</li>
+                            <li><a class="dropdown-item py-2 fw-medium lang-selector" href="#" data-lang="en">🇺🇸 English</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium lang-selector" href="#" data-lang="sw">🇹🇿 Swahili</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium lang-selector" href="#" data-lang="fr">🇫🇷 French</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium lang-selector" href="#" data-lang="es">🇪🇸 Spanish</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium lang-selector" href="#" data-lang="de">🇩🇪 German</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium lang-selector" href="#" data-lang="pt">🇵🇹 Portuguese</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium lang-selector" href="#" data-lang="zh">🇨🇳 Chinese</a></li>
+                            <li><a class="dropdown-item py-2 fw-medium lang-selector" href="#" data-lang="ar">🇸🇦 Arabic</a></li>
+                        </ul>
+                    </div>
+                    <!-- Notifications -->
+                    <div class="dropdown">
+                        <div class="position-relative d-none d-md-block dropdown-toggle" data-bs-toggle="dropdown" style="cursor: pointer;" id="notificationBellToggle">
+                            <i class="bi bi-bell fs-5 text-muted"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle d-none" id="notificationBadge"></span>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-3 p-0" style="width: 320px; z-index: 1050; max-height: 360px; overflow-y: auto;" id="notificationsDropdownList">
+                            <li class="p-3 border-bottom bg-light fw-bold" data-i18n="word.notifications">Notifications</li>
+                            <li class="p-3 text-center text-muted small" id="notificationsLoading">Loading...</li>
+                        </ul>
+                    </div>
+                    <!-- User Profile -->
+                    <div class="dropdown">
+                        <div class="user-profile shadow-sm bg-white border dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; border-radius: 50rem;">
+                            <img src="https://ui-avatars.com/api/?name=WG&size=64&background=fff&color=2563EB" alt="User" class="user-avatar" id="headerAvatarImg" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; box-shadow: 0 1px 3px rgba(0,0,0,0.2);">
+                            <span class="pe-2 text-dark" id="headerUsername">Wilson</span>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2" style="position: absolute; right: 0; min-width: 180px; z-index: 9999;">
+                            <li><a class="dropdown-item py-2" href="profile.html"><i class="bi bi-person me-2"></i> <span data-i18n="header.profile">My Profile</span></a></li>
+                            <li><a class="dropdown-item py-2" href="settings.html"><i class="bi bi-gear me-2"></i> <span data-i18n="header.settings">Settings</span></a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item py-2 text-danger" href="#" id="dropdownLogout"><i class="bi bi-box-arrow-right me-2"></i> <span data-i18n="header.logout">Logout</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <main class="content-area">
+                
+                <!-- Filter Bar -->
+                <div class="report-filter-bar">
+                    <div class="flex-grow-1 row g-3">
+                        <div class="col-md-4">
+                            <label class="form-label mb-1">Report Period</label>
+                            <select class="form-control" id="reportPeriod">
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly" selected>Monthly</option>
+                                <option value="yearly">Yearly</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label mb-1" id="reportDateLabel">Select Month</label>
+                            <input type="date" class="form-control report-period-input" id="reportDateDaily" style="display:none;">
+                            <input type="week" class="form-control report-period-input" id="reportDateWeekly" style="display:none;">
+                            <input type="month" class="form-control report-period-input" id="reportDateMonthly">
+                            <input type="number" class="form-control report-period-input" id="reportDateYearly" min="2000" max="2100" step="1" placeholder="e.g. 2026" style="display:none;">
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary shadow-sm" id="generateReportBtn">
+                            <i class="bi bi-arrow-clockwise me-1"></i> Generate
+                        </button>
+                        <button class="btn btn-outline-secondary shadow-sm ms-2" id="downloadReportBtn">
+                            <i class="bi bi-download me-1"></i> Download PDF
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="report-stat-grid">
+                    <div class="stat-card success">
+                        <div class="stat-title">Total Income (Period)</div>
+                        <div class="stat-value success" id="rep_totalIncome">2,500,000 TZS</div>
+                    </div>
+                    <div class="stat-card danger">
+                        <div class="stat-title">Total Expense (Period)</div>
+                        <div class="stat-value danger" id="rep_totalExpenses">900,000 TZS</div>
+                    </div>
+                    <div class="stat-card primary">
+                        <div class="stat-title">Net Balance</div>
+                        <div class="stat-value primary" id="rep_balance">1,600,000 TZS</div>
+                    </div>
+                </div>
+
+                <!-- Visuals & Data -->
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="report-chart-box" style="display:block; text-align:left;">
+                            <h5 class="text-dark mb-1"><i class="bi bi-pie-chart-fill text-primary me-2"></i>Income vs Expenses</h5>
+                            <p id="rep_periodLabel" class="text-muted small mb-3">Generate a report to see the breakdown.</p>
+                            <div style="position: relative; height: 260px; max-width: 420px; margin: 0 auto;">
+                                <canvas id="reportSummaryChart"></canvas>
+                            </div>
+                            <p class="small text-muted mb-0 mt-3 text-center" id="rep_generatedAt"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/components/sidebar.js" type="module"></script>
+    <script type="module" src="../js/components/notifications.js"></script>
+    <script src="../js/pages/reports.js" type="module"></script>
+    <script src="../js/components/confirm.js"></script>
+    <script src="../js/components/toast.js"></script>
+    <script type="module" src="../js/core/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/components/i18n.js"></script>
+    <script type="module" src="../js/core/router.js"></script>
+</body>
+</html>

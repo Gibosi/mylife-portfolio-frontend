@@ -1,0 +1,210 @@
+
+/* Dark Mode Overrides */
+html.dark-mode, body.dark-mode {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f8fafc;
+    --sidebar: #020617;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+body.dark-mode .sidebar {
+    background-color: var(--sidebar);
+    border-right: 1px solid #334155;
+}
+
+body.dark-mode .top-header,
+body.dark-mode .stat-card,
+body.dark-mode .card,
+body.dark-mode .custom-table thead th,
+body.dark-mode .gallery-card,
+body.dark-mode .settings-nav,
+body.dark-mode .settings-section,
+body.dark-mode .report-filter-bar,
+body.dark-mode .report-chart-box,
+body.dark-mode .resume-settings,
+body.dark-mode .dropdown-menu {
+    background-color: var(--card-bg) !important;
+    border-color: #334155 !important;
+    color: var(--text-main) !important;
+}
+
+body.dark-mode .custom-table tbody tr {
+    border-bottom-color: #334155;
+}
+
+body.dark-mode .custom-table tbody tr:hover {
+    background-color: #334155 !important;
+}
+
+body.dark-mode .text-dark,
+body.dark-mode .fw-bold {
+    color: var(--text-main) !important;
+}
+
+body.dark-mode .bg-white {
+    background-color: var(--card-bg) !important;
+}
+
+body.dark-mode .bg-light {
+    background-color: #334155 !important;
+}
+
+body.dark-mode .form-control {
+    background-color: #0f172a !important;
+    border-color: #334155 !important;
+    color: #f8fafc !important;
+}
+
+body.dark-mode .form-control:focus {
+    border-color: var(--primary) !important;
+}
+
+body.dark-mode .dropdown-item {
+    color: var(--text-main) !important;
+}
+
+body.dark-mode .dropdown-item:hover {
+    background-color: #334155 !important;
+    color: #fff !important;
+}
+
+body.dark-mode .dropdown-divider {
+    border-top-color: #334155 !important;
+}
+
+body.dark-mode .text-muted {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .user-profile {
+    background-color: var(--card-bg) !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .modal-content {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main) !important;
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .card-header {
+    border-bottom-color: #334155 !important;
+}
+
+body.dark-mode .table-responsive {
+    border-color: #334155 !important;
+}
+
+/* ---- Extended coverage (labels, tabs, resume, profile, buttons) ---- */
+
+body.dark-mode .page-header,
+body.dark-mode .info-label,
+body.dark-mode .info-value,
+body.dark-mode .profile-name,
+body.dark-mode .profile-title,
+body.dark-mode .stat-title,
+body.dark-mode .form-label,
+body.dark-mode .gallery-title,
+body.dark-mode .gallery-meta,
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3,
+body.dark-mode h4, body.dark-mode h5, body.dark-mode h6,
+body.dark-mode label {
+    color: var(--text-main) !important;
+}
+
+body.dark-mode .input-group-text {
+    background-color: #334155 !important;
+    border-color: #334155 !important;
+    color: var(--text-main) !important;
+}
+
+body.dark-mode .nav-tabs,
+body.dark-mode .settings-nav {
+    border-color: #334155 !important;
+}
+
+body.dark-mode .nav-tabs .nav-link,
+body.dark-mode .settings-nav .nav-link {
+    color: #94a3b8 !important;
+    background-color: transparent !important;
+}
+
+body.dark-mode .nav-tabs .nav-link.active,
+body.dark-mode .settings-nav .nav-link.active {
+    background-color: var(--card-bg) !important;
+    color: var(--primary) !important;
+    border-color: #334155 #334155 var(--card-bg) !important;
+}
+
+body.dark-mode .btn-light {
+    background-color: #334155 !important;
+    border-color: #334155 !important;
+    color: var(--text-main) !important;
+}
+
+body.dark-mode .btn-outline-primary,
+body.dark-mode .btn-outline-secondary,
+body.dark-mode .btn-outline-success,
+body.dark-mode .btn-outline-info {
+    color: var(--text-main) !important;
+}
+
+body.dark-mode select.form-control option {
+    background-color: var(--card-bg);
+    color: var(--text-main);
+}
+
+/* The CV preview should always look like a printable white document,
+   regardless of dark mode, since it's meant to be exported/printed. */
+body.dark-mode .a4-paper,
+body.dark-mode .resume-preview-pane {
+    background-color: #ffffff !important;
+    color: #1a1a1a !important;
+}
+
+body.dark-mode .cv-section-title,
+body.dark-mode .cv-label,
+body.dark-mode .cv-val,
+body.dark-mode .cv-work-title,
+body.dark-mode .cv-work-pos,
+body.dark-mode .cv-custom-list li {
+    color: #1a1a1a !important;
+    border-color: #ddd !important;
+}
+
+body.dark-mode .cv-table th,
+body.dark-mode .cv-table td {
+    border-color: #ddd !important;
+    color: #1a1a1a !important;
+}
+
+body.dark-mode .avatar-frame,
+body.dark-mode .gallery-img.bg-secondary {
+    background-color: #334155 !important;
+}
+
+/* ---- Fix: several components use a hardcoded light background (e.g.
+   #f8fafc / #f1f5f9) instead of a theme variable, so in dark mode their
+   text turned light while the background stayed light too — white text
+   on a near-white box. Force these to the dark surface color. ---- */
+body.dark-mode .info-item,
+body.dark-mode .chart-placeholder,
+body.dark-mode .task-row-completed,
+body.dark-mode .settings-nav-item:hover,
+body.dark-mode .custom-table thead th,
+body.dark-mode .custom-table tbody tr:hover,
+body.dark-mode .table-action-btn:hover,
+body.dark-mode .form-control:disabled,
+body.dark-mode .form-control[readonly],
+body.dark-mode .profile-avatar,
+body.dark-mode .gallery-img {
+    background-color: #334155 !important;
+    border-color: #475569 !important;
+    color: var(--text-main) !important;
+}
+
+body.dark-mode .info-item {
+    border: 1px solid #475569 !important;
+}

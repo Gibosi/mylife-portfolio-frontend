@@ -1,0 +1,55 @@
+.finance-chart-container {
+    background: var(--card-bg);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.finance-chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.finance-chart-title {
+    font-weight: 700;
+    color: var(--text-main);
+    font-size: 1.1rem;
+}
+
+.chart-placeholder {
+    flex: 1;
+    background-color: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-weight: 500;
+    flex-direction: column;
+}
+
+.amount-positive {
+    color: var(--success);
+    font-weight: 700;
+}
+
+.amount-negative {
+    color: var(--danger);
+    font-weight: 700;
+}
+
+/* Transaction Form Styles */
+.transaction-form-card {
+    background: var(--card-bg);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
